@@ -8,6 +8,13 @@ local Wall = require "src.wall"
 local window_width, window_height = love.graphics.getDimensions()
 
 local offset = 50 -- this defines where the paddle is from its side of the screen
+local p1_score = 0
+local p2_score = 0
+
+function ballReset()
+   B.b:destroy()
+   B = Ball:new{x = window_width / 2, y = window_height / 2, r = 10, world = World}
+end
 
 function love.load()
    World = love.physics.newWorld(0, 0, true)
@@ -21,12 +28,28 @@ function love.load()
    B = Ball:new{x = window_width / 2, y = window_height / 2, r = 10, world = World}
 end
 function love.update(dt)
-   World:update(dt)
-
    P1:move(dt, window_height)
    P2:move(dt, window_height)
+
+   World:update(dt)
+
+   
+   if love.keyboard.isDown("r") then
+      ballReset()
+   end
+
+   local offset = B.b:getX()
+   if offset > window_width then
+      p1_score = p1_score + 1
+      ballReset()
+   elseif offset < 0 then
+      p2_score = p2_score + 1
+      ballReset()
+   end
 end
 function love.draw()
+   love.graphics.print(p1_score, 0, 100)
+   love.graphics.print(p2_score, 100, 100)
    B:draw()
    P1:draw()
    P2:draw()

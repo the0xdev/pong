@@ -9,7 +9,7 @@ function Wall:new(o)
    setmetatable(o, self)
    self.__index = self
 
-   o.b = love.physics.newBody(o.world, 0, o.p, "static")
+   o.b = love.physics.newBody(o.world, 0, o.p, "kinematic")
 
    o.s = love.physics.newRectangleShape(o.w, 1)
 

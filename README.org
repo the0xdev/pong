@@ -1,8 +1,18 @@
 # SPDX-FileCopyrightText: 2024 Imran Mustafa <imran@imranmustafa.net>
-#
 # SPDX-License-Identifier: GPL-3.0-or-later
 * Pong
 It's pong that's it.
+** Usage
+This is made with [[https://love2d.org/][LÖVE]], so usage is similar to other games made with the
+engine. Just run the =love= command in the directory containing =main.lua=,
+which will run the game.
+#+begin_src sh
+love .
+#+end_src
+** Gameplay
+The left hand paddle can be move up with =w= and down with =s=, likewise the
+right hand paddle is moved with =↑= and =↓=. You can also press =r= to reset the
+ball to the centre of the screen.
 * Copyright/Licensing
 Copyright (C) 2024 Imran Mustafa
 

@@ -20,7 +20,7 @@ function Paddle:new(o)
    setmetatable(o, self)
    self.__index = self
 
-   o.b = love.physics.newBody(o.world, o.x, o.y, "kinematic")
+   o.b = love.physics.newBody(o.world, o.x, o.y, "static")
 
    o.s = love.physics.newRectangleShape(o.w, o.h)
 
